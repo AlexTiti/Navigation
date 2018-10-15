@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation"
+            app:startDestination="@id/blankFragment">
+
+
+    <activity android:id="@+id/secondActivity" android:name="com.example.administrator.navigation.SecondActivity"
+              android:label="activity_second" tools:layout="@layout/activity_second"/>
+
+    <fragment android:id="@+id/blankFragment" android:name="com.example.administrator.navigation.BlankFragment"
+              android:label="fragment_blank" tools:layout="@layout/fragment_blank">
+        <action android:id="@+id/action_blankFragment_to_secondActivity" app:destination="@id/secondActivity"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"/>
+        <action android:id="@+id/action_blankFragment_to_secondFragment" app:destination="@id/secondFragment"/>
+
+        <argument android:name="number" app:argType="integer" android:defaultValue="0"/>
+        <argument android:name="name" app:argType="string" android:defaultValue="Name"/>
+
+    </fragment>
+    <fragment android:id="@+id/secondFragment" android:name="com.example.administrator.navigation.SecondFragment"
+              android:label="fragment_second" tools:layout="@layout/fragment_second"/>
+
+</navigation>
