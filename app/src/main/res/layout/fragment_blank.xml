@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".BlankFragment">
@@ -10,5 +10,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hello_blank_fragment"/>
+
+    <Button
+            android:id="@+id/btnActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Activity"/>
+
+    <ImageView
+            android:src="@drawable/ic_android_black_24dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:transitionName="image"
+            android:layout_height="100dp" android:id="@+id/imageView"/>
 
 </FrameLayout>

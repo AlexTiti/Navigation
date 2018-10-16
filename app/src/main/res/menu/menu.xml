@@ -8,7 +8,7 @@
           app:showAsAction="always"
           />
 
-    <item android:id="@id/secondActivity"
+    <item android:id="@id/include"
           android:title="Second"
           android:icon="@drawable/ic_launcher_background"
           android:menuCategory="secondary"

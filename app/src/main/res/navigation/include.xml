@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/include" app:startDestination="@id/secondActivity">
+
+        <activity android:id="@+id/secondActivity" android:name="com.example.administrator.navigation.SecondActivity"
+                  android:label="activity_second" tools:layout="@layout/activity_second">
+            <deepLink app:uri="www.alex.com"/>
+        </activity>
+
+        <fragment android:id="@+id/secondFragment2" android:name="com.example.administrator.navigation.SecondFragment"
+                  android:label="fragment_second" tools:layout="@layout/fragment_second"/>
+</navigation>

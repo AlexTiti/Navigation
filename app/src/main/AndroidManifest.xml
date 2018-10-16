@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-        android:label="MainActivity">
+                  android:label="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity"
-        android:label="SecondActivity">
+                  android:label="SecondActivity">
+            <nav-graph android:value="@navigation/include"/>
         </activity>
     </application>
 

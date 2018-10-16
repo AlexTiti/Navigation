@@ -1,16 +1,19 @@
 package com.example.administrator.navigation
 
 
+import android.app.Activity
 import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.app.Fragment
+import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
+import android.widget.ImageView
+import androidx.navigation.ActivityNavigator
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_blank.*
+import androidx.navigation.fragment.FragmentNavigator
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,19 +46,31 @@ class BlankFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_blank, container, false)
         val btnFragment = view.findViewById<Button>(R.id.btnFragment)
-        btnFragment.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("name","Blank")
-            bundle.putInt("number",10)
-            Navigation.findNavController(btnFragment).addOnNavigatedListener(object : NavController.OnNavigatedListener{
-                override fun onNavigated(controller: NavController, destination: NavDestination) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
+        val btnActivity = view.findViewById<Button>(R.id.btnActivity)
+        val imageView = view.findViewById<ImageView>(R.id.imageView)
 
-            })
-            Navigation.findNavController(btnFragment).navigate(R.id.action_blankFragment_to_secondFragment,bundle)
-//            Navigation.createNavigateOnClickListener(R.id.action_blankFragment_to_secondFragment,null)
+        btnFragment.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putString("name", "Blank")
+            bundle.putInt("number", 10)
+
+            val extras = FragmentNavigator.Extras.Builder()
+                .addSharedElement(imageView, "image")
+                .build()
+            Navigation.findNavController(btnFragment)
+                .navigate(R.id.action_blankFragment_to_secondFragment, bundle, null, extras)
+
         }
+
+        btnActivity.setOnClickListener {
+            val option = ActivityOptionsCompat.makeSceneTransitionAnimation(activity as Activity, imageView, "image")
+
+            val exeras = ActivityNavigator.Extras(option)
+            Navigation.findNavController(btnFragment)
+                .navigate(R.id.action_blankFragment_to_secondActivity2, null, null, exeras)
+        }
+
         return view
     }
 
